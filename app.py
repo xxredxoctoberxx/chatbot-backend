@@ -8,20 +8,24 @@ import uuid
 import logging
 from datetime import datetime
 
-# Load environment + select config
+'''Personal AI Assistant Chatbot Flask-Backend Service
+By: daniliser95@gmail.com
+Important notes for deployment:
+1. Make sure you use python == 3.10.13
+2. Run Command: gunicorn app:app --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT
+'''
+
+# Environment & Configurations
 env = os.getenv("FLASK_ENV", "default")
 app = Flask(__name__)
 app.config.from_object(config[env])
 
-# Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("chatbot")
 
-# Enable CORS and WebSockets
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-# Initialize OpenAI
 client = OpenAI(api_key=app.config["OPENAI_API_KEY"])
 MODEL_NAME = app.config["OPENAI_MODEL"]
 
@@ -115,5 +119,5 @@ def internal_error(e):
     return jsonify({"error": "Internal server error"}), 500
 
 if __name__ == "__main__":
-    port = app.config["PORT", 5000]
+    port = app.config("PORT", 5000)
     socketio.run(app, host="0.0.0.0", port=port)

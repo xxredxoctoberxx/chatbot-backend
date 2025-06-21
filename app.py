@@ -24,7 +24,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("chatbot")
 
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*")
 
 client = OpenAI(api_key=app.config["OPENAI_API_KEY"])
 MODEL_NAME = app.config["OPENAI_MODEL"]

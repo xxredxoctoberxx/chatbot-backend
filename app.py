@@ -115,5 +115,5 @@ def internal_error(e):
     return jsonify({"error": "Internal server error"}), 500
 
 if __name__ == "__main__":
-    port = app.config["PORT"]
+    port = app.config["PORT", 5000]
     socketio.run(app, host="0.0.0.0", port=port)

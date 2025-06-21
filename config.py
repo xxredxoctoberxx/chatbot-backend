@@ -6,7 +6,7 @@ load_dotenv()
 
 class Config:
     """Base configuration"""
-    SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-here")
+    SECRET_KEY = os.getenv("SECRET_KEY", "f08f63ac337e116b433b7397f853825d")
 
     # OpenAI Configuration
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

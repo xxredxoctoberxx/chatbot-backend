@@ -14,7 +14,7 @@ class Config:
 
     # Flask configuration
     DEBUG = os.getenv("FLASK_ENV", "production") == "development"
-    PORT = int(os.environ.get("PORT", 5000))
+    PORT = int(os.environ.get("PORT", 10000))
 
 class DevelopmentConfig(Config):
     DEBUG = True

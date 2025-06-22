@@ -7,6 +7,7 @@ import os
 import uuid
 import logging
 from datetime import datetime
+import eventlet
 
 '''Personal AI Assistant Chatbot Flask-Backend Service
 By: daniliser95@gmail.com
@@ -14,6 +15,9 @@ Important notes for deployment:
 1. Make sure you use python == 3.10.13
 2. Run Command: gunicorn app:app --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT
 '''
+
+# Monkey Patch 
+eventlet.monkey_patch()
 
 # Environment & Configurations
 env = os.getenv("FLASK_ENV", "default")

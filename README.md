@@ -1,5 +1,5 @@
 # Daniel's Personal AI Assistant - Chatbot Backend
-![Chatbot Preview](preview.png)
+<br>![Chatbot Preview](preview.png)<br>
 Link to visit and interact with this project: https://v0-amazon-bedrock-chatbot-jade-five.vercel.app/
 This repository contains the backend for my personal AI assistant — a project that introduces who I am and what I do in an interactive way. The chatbot is designed to answer questions about me, my experience, and the technologies I work with. It runs on Flask and communicates with OpenAI's language model to generate responses in real time.
 

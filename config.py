@@ -1,14 +1,13 @@
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from a .env file
 load_dotenv()
 
 class Config:
     """Base configuration"""
     SECRET_KEY = os.getenv("SECRET_KEY")
 
-    # OpenAI Configuration
+    # OpenAI configuration
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
 
@@ -22,7 +21,6 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
 
-# Dictionary for Flask app factory pattern (if needed)
 config = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,

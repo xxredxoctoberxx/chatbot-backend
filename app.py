@@ -14,6 +14,9 @@ By: daniliser95@gmail.com
 Important notes for deployment:
 1. Make sure you use python == 3.10.13
 2. Run Command: gunicorn app:app --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT
+3. Render default PORT == 10000
+4. use eventlet.monkey_patch()
+5. use dnspython==2.4.2 to solve flask-openai connection issues
 '''
 
 # Monkey Patch 
@@ -33,10 +36,13 @@ socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*")
 client = OpenAI(api_key=app.config["OPENAI_API_KEY"])
 MODEL_NAME = app.config["OPENAI_MODEL"]
 
+with open("system_prompt.txt", "r", encoding="utf-8") as f:
+    system_prompt = f.read().strip()
+
 def system_message():
     return {
         "role": "system",
-        "content": "You are a helpful, friendly AI assistant. Provide concise, accurate, and helpful responses to user queries."
+        "content": system_prompt
     }
 
 def get_openai_response(messages):

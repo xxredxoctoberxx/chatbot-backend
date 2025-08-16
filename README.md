@@ -75,7 +75,7 @@ Once running, you can POST messages to the Flask server and get responses genera
 
 ## About me
 
-I'm Daniel Liser, a Data Scientist from Tel Aviv with a background in economics and applied mathematics. I’ve led data teams, built automation systems, and spent a lot of time exploring the boundaries between data, software, and user experience. I care deeply about the quality of the things I build — from the backend architecture to the personality of a chatbot.
+I'm Daniel, a Data Scientist from Tel Aviv with a background in economics and applied mathematics. I’ve led data teams, built automation systems, and spent a lot of time exploring the boundaries between data, software, and user experience. I care deeply about the quality of the things I build — from the backend architecture to the personality of a chatbot.
 
 This project was created from the ground up — backend logic, API integration, deployment, all of it. If you want to chat about the project or something entirely different, feel free to reach out:
 
